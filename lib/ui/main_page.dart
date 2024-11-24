@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import '../base/widget/base_page.dart';
 
 class MainPage extends StatefulWidget {
-  final Map<String, dynamic> arguments;
 
-  const MainPage({Key? key, required this.arguments}) : super(key: key);
+  const MainPage({Key? key}) : super(key: key);
 
   @override
   State<MainPage> createState() => _MainPageState();

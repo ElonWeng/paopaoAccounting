@@ -46,10 +46,10 @@ class MyApp extends StatelessWidget {
         ),
         routes: {
           CODE_PAGE: (context) => CodePage(arguments: ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>),
-          MAIN_PAGE: (context) => MainPage(arguments: ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>),
+          MAIN_PAGE: (context) => const MainPage(),
         },
         home: const BaseProviderWidget(
-          child: LoginPage(),
+          child: MainPage(),
         ),
       ),
     );
