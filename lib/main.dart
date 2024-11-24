@@ -45,6 +45,7 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
         ),
         routes: {
+          LOGIN_PAGE: (context) => LoginPage(),
           CODE_PAGE: (context) => CodePage(arguments: ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>),
           MAIN_PAGE: (context) => const MainPage(),
         },

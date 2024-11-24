@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:paopao_accounting/base/config/routes.dart';
 
+import '../base/util/routes_util.dart';
 import '../base/widget/base_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -21,6 +23,9 @@ class _MainPageState extends State<MainPage> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      if(_selectedIndex == 2){
+        RoutesUtil.navigateToPage(context,LOGIN_PAGE,{});
+      }
     });
   }
 
