@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:paopao_accounting/base/config/routes.dart';
+import 'package:paopao_accounting/ui/main/home/HomePage.dart';
 
 import '../base/util/routes_util.dart';
 import '../base/widget/base_page.dart';
@@ -15,7 +16,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
-    Center(child: Text('Home')),
+    HomePage(),
     Center(child: Text('Search')),
     Center(child: Text('Profile')),
   ];
@@ -33,7 +34,7 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Bottom Navigation Bar Example'),
+        title: Text(''),
       ),
       body: BaseProviderWidget(
         child: Center(
@@ -43,16 +44,16 @@ class _MainPageState extends State<MainPage> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
+            icon: Icon(Icons.add_home_outlined),
+            label: '首页',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
+            icon: Icon(Icons.list_alt_outlined),
+            label: '账单',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
+            icon: Icon(Icons.person_2_outlined),
+            label: '我的',
           ),
         ],
         currentIndex: _selectedIndex,
