@@ -5,6 +5,7 @@ import 'package:paopao_accounting/ui/main/home/HomePage.dart';
 import '../base/util/localization_service.dart';
 import '../base/util/routes_util.dart';
 import '../base/widget/base_page.dart';
+import '../base/widget/bottom_bar.dart';
 
 class MainPage extends StatefulWidget {
 
@@ -18,18 +19,10 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Center(child: Text('Search')),
     Center(child: Text('Profile')),
   ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-      if(_selectedIndex == 2){
-        RoutesUtil.navigateToPage(context,LOGIN_PAGE,{});
-      }
-    });
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +53,7 @@ class _MainPageState extends State<MainPage> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
+
     );
   }
 }
