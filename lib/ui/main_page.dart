@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:paopao_accounting/base/config/routes.dart';
 import 'package:paopao_accounting/ui/main/home/HomePage.dart';
 
+import '../base/util/localization_service.dart';
 import '../base/util/routes_util.dart';
 import '../base/widget/base_page.dart';
 import '../base/widget/bottom_bar.dart';
@@ -34,7 +35,25 @@ class _MainPageState extends State<MainPage> {
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
       ),
-      bottomNavigationBar: BottomBar()
+      bottomNavigationBar: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.add_home_outlined),
+            label: LocalizationService.of(context).translate('home'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.list_alt_outlined),
+            label: LocalizationService.of(context).translate('bill'),
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_2_outlined),
+            label: LocalizationService.of(context).translate('profile'),
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
+
     );
   }
 }
