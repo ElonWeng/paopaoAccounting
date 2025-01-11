@@ -22,6 +22,11 @@ class _MainPageState extends State<MainPage> {
     Center(child: Text('Profile')),
   ];
 
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
 
 
   @override
