@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:paopao_accounting/base/config/routes.dart';
 import 'package:paopao_accounting/ui/main/home/HomePage.dart';
+import 'package:paopao_accounting/ui/me/MePage.dart';
 
 import '../base/config/navigator_key.dart';
 import '../base/util/localization_service.dart';
@@ -19,7 +20,7 @@ class _MainPageState extends State<MainPage> {
   int _selectedIndex = 0;
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Center(child: Text('Profile')),
+    MePage(),
   ];
 
   void _onItemTapped(int index) {
