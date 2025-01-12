@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-import 'package:paopao_accounting/ui/main_page.dart';
+import 'package:paopao_accounting/ui/MainPage.dart';
 import '../../base/util/localization_service.dart';
 
 class SplashScreen extends StatefulWidget {
