@@ -40,24 +40,8 @@ class _MainPageState extends State<MainPage> {
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.add_home_outlined),
-            label: LocalizationService.of(context).translate('home'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list_alt_outlined),
-            label: LocalizationService.of(context).translate('bill'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person_2_outlined),
-            label: LocalizationService.of(context).translate('profile'),
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-      ),
+      bottomNavigationBar: BottomBar(initialIndex: _selectedIndex,
+      onIndexChanged: _onItemTapped,),
 
     );
   }

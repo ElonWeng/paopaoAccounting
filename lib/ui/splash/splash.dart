@@ -47,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen>
     });
 
     // set timer to navigate to main page 5s later
-    Future.delayed(const Duration(seconds: 5), () {
+    Future.delayed(const Duration(seconds: 1), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const MainPage()),

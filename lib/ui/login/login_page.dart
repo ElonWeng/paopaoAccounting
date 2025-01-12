@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                     }
                   },
                   child:  Text(
-                    '589.AI',
+                    'pipo',
                     style: TextStyle(
                         color: Colors.black,
                         fontSize: Provider.of<FontSizeModel>(context, listen: false)
