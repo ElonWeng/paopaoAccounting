@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:paopao_accounting/base/config/routes.dart';
 import 'package:paopao_accounting/ui/main/home/HomePage.dart';
 
+import '../base/config/navigator_key.dart';
 import '../base/util/localization_service.dart';
 import '../base/util/routes_util.dart';
 import '../base/widget/base_page.dart';
 import '../base/widget/bottom_bar.dart';
 
 class MainPage extends StatefulWidget {
-
   const MainPage({Key? key}) : super(key: key);
 
   @override
@@ -28,7 +28,6 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,9 +39,10 @@ class _MainPageState extends State<MainPage> {
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
       ),
-      bottomNavigationBar: BottomBar(initialIndex: _selectedIndex,
-      onIndexChanged: _onItemTapped,),
-
+      bottomNavigationBar: BottomBar(
+        initialIndex: _selectedIndex,
+        onIndexChanged: _onItemTapped,
+      ),
     );
   }
 }

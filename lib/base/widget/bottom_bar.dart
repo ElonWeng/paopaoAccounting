@@ -33,7 +33,7 @@ class _BottomBarState extends State<BottomBar>{
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      widget.onIndexChanged?.call(index); // 调用回调函数，传递新索引
+      widget.onIndexChanged?.call(index); //
     });
   }
   @override

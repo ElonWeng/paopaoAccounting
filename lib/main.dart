@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:paopao_accounting/ui/login/login_model.dart';
+import 'package:paopao_accounting/ui/login/login_page.dart';
 import 'package:paopao_accounting/ui/splash/Splash.dart';
 import 'package:provider/provider.dart';
+import 'base/config/routes.dart';
 import 'base/model/font_size_model.dart';
 import 'base/model/loading_model.dart';
 import 'base/model/local_model.dart';
@@ -23,7 +25,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Locale _locale = const Locale('zh'); // 默认语言
+  Locale _locale = const Locale('en'); // 默认语言
 
   void _setLocale(Locale locale) {
     setState(() {
@@ -62,7 +64,7 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
       ],
       routes: {
-        // 路由定义保持不变
+        LOGIN_PAGE: (context) => const LoginPage(),
       },
       home: SplashScreen(
         onLocaleChange: _setLocale, // 向 SplashScreen 传递切换语言函数
