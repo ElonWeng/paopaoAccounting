@@ -48,10 +48,11 @@ class _SplashScreenState extends State<SplashScreen>
 
     // set timer to navigate to main page 5s later
     Future.delayed(const Duration(seconds: 5), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => const MainPage()),
-      );
+      if (mounted) {
+        Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => const MainPage()),
+        );
+      }
     });
   }
 
@@ -85,6 +86,7 @@ class _SplashScreenState extends State<SplashScreen>
             color: Colors.black.withOpacity(0.5),
           ),
 
+          // App content
           Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -120,25 +122,41 @@ class _SplashScreenState extends State<SplashScreen>
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
-                // Language selection buttons
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.center,
-                //   children: [
-                //     TextButton(
-                //       onPressed: () => widget.onLocaleChange(Locale('en')),
-                //       child: const Text('English'),
-                //     ),
-                //     TextButton(
-                //       onPressed: () => widget.onLocaleChange(Locale('zh')),
-                //       child: const Text('中文'),
-                //     ),
-                //     TextButton(
-                //       onPressed: () => widget.onLocaleChange(Locale('es')),
-                //       child: const Text('Español'),
-                //     ),
-                //   ],
-                // ),
+              ],
+            ),
+          ),
+
+          // Language selection buttons at the bottom
+          Positioned(
+            bottom: 20,
+            left: 0,
+            right: 0,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                TextButton(
+                  onPressed: () => widget.onLocaleChange(const Locale('en')),
+                  child: const Text(
+                    'English',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                TextButton(
+                  onPressed: () => widget.onLocaleChange(const Locale('zh')),
+                  child: const Text(
+                    '中文',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                const SizedBox(width: 10),
+                TextButton(
+                  onPressed: () => widget.onLocaleChange(const Locale('es')),
+                  child: const Text(
+                    'Español',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
               ],
             ),
           ),
