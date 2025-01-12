@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:paopao_accounting/ui/main/home/HomePage.dart';
-import 'package:paopao_accounting/ui/me/me_page.dart';
+import 'package:paopao_accounting/ui/me/MePage.dart';
 
 import '../base/util/localization_service.dart';
 
