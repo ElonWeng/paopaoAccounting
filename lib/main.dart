@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:paopao_accounting/base/widget/base_page.dart';
 import 'package:paopao_accounting/ui/login/login_model.dart';
 import 'package:paopao_accounting/ui/login/login_page.dart';
 import 'package:paopao_accounting/ui/splash/Splash.dart';
@@ -66,9 +67,9 @@ class _MyAppState extends State<MyApp> {
       routes: {
         LOGIN_PAGE: (context) => const LoginPage(),
       },
-      home: SplashScreen(
+      home: BaseProviderWidget(child: SplashScreen(
         onLocaleChange: _setLocale, // 向 SplashScreen 传递切换语言函数
-      ),
+      ))
     ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:paopao_accounting/base/widget/base_page.dart';
 import 'package:provider/provider.dart';
 import 'package:paopao_accounting/base/config/config_page.dart';
 import 'package:paopao_accounting/base/config/navigator_key.dart';
@@ -67,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
             ],
           ), // 根据需要自定义标题
         ),
-        body: Padding(
+        body: BaseProviderWidget(child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: SingleChildScrollView(
             child: Column(
@@ -96,8 +97,8 @@ class _LoginPageState extends State<LoginPage> {
                   contentKey: 'create',
                   textStyle: TextStyle(
                       fontSize:
-                          Provider.of<FontSizeModel>(context, listen: false)
-                              .getTextSize(TextSizeKey.bigTitleSize),
+                      Provider.of<FontSizeModel>(context, listen: false)
+                          .getTextSize(TextSizeKey.bigTitleSize),
                       fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 10), // 垂直间距
@@ -106,26 +107,26 @@ class _LoginPageState extends State<LoginPage> {
                     textStyle: TextStyle(
                         color: Colors.black,
                         fontSize:
-                            Provider.of<FontSizeModel>(context, listen: false)
-                                .getTextSize(TextSizeKey.titleSize))),
+                        Provider.of<FontSizeModel>(context, listen: false)
+                            .getTextSize(TextSizeKey.titleSize))),
                 const SizedBox(height: 20), // 垂直间距
                 /*email输入框*/
                 InputBgWidget(
                     child: Center(
-                  child: TextField(
-                    controller: _emailController,
-                    decoration:  InputDecoration(
-                      hintText: 'email@domain.com',
-                      hintStyle: TextStyle(
-                          fontWeight: FontWeight.normal, color: Colors.grey,
-                      fontSize: Provider.of<FontSizeModel>(context, listen: false)
-                          .getTextSize(TextSizeKey.titleSize)),
-                      border: InputBorder.none,
-                      contentPadding:
+                      child: TextField(
+                        controller: _emailController,
+                        decoration:  InputDecoration(
+                          hintText: 'email@domain.com',
+                          hintStyle: TextStyle(
+                              fontWeight: FontWeight.normal, color: Colors.grey,
+                              fontSize: Provider.of<FontSizeModel>(context, listen: false)
+                                  .getTextSize(TextSizeKey.titleSize)),
+                          border: InputBorder.none,
+                          contentPadding:
                           const EdgeInsets.symmetric(vertical: 0, horizontal: 15),
-                    ),
-                  ),
-                )),
+                        ),
+                      ),
+                    )),
                 const SizedBox(height: 15), // 垂直间距
                 InkWell(
                   child: Container(
@@ -140,7 +141,7 @@ class _LoginPageState extends State<LoginPage> {
                         textStyle: TextStyle(
                             color: Colors.white,
                             fontSize: Provider.of<FontSizeModel>(context,
-                                    listen: false)
+                                listen: false)
                                 .getTextSize(TextSizeKey.titleSize)),
                       ),
                     ),
@@ -164,8 +165,8 @@ class _LoginPageState extends State<LoginPage> {
                     } else {
                       Provider.of<ToastProvider>(context, listen: false)
                           .showToast(
-                              Provider.of<LocalModel>(context, listen: false)
-                                  .getText('emailInput'));
+                          Provider.of<LocalModel>(context, listen: false)
+                              .getText('emailInput'));
                     }
                   },
                 ),
@@ -177,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                         contentKey: 'or',
                         textStyle: TextStyle(
                             fontSize: Provider.of<FontSizeModel>(context,
-                                    listen: false)
+                                listen: false)
                                 .getTextSize(TextSizeKey.titleSize)))
                   ],
                 ),
@@ -190,25 +191,25 @@ class _LoginPageState extends State<LoginPage> {
                         color: Colors.black12),
                     child: Center(
                         child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/images/icon_google.png',
-                          width: 20,
-                          height: 20,
-                        ),
-                        const SizedBox(width: 10),
-                        Text(
-                          context.watch<LoginModel>().getText(),
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black,
-                              fontSize: Provider.of<FontSizeModel>(context,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Image.asset(
+                              'assets/images/icon_google.png',
+                              width: 20,
+                              height: 20,
+                            ),
+                            const SizedBox(width: 10),
+                            Text(
+                              context.watch<LoginModel>().getText(),
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.black,
+                                  fontSize: Provider.of<FontSizeModel>(context,
                                       listen: false)
-                                  .getTextSize(TextSizeKey.titleSize)),
-                        ),
-                      ],
-                    )),
+                                      .getTextSize(TextSizeKey.titleSize)),
+                            ),
+                          ],
+                        )),
                   ),
                   onTap: () {
                   },
@@ -216,63 +217,63 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 20), // 垂直间距
                 RichText(
                     text: TextSpan(
-                  children: [
-                    TextSpan(
-                        text: Provider.of<LocalModel>(context, listen: false)
-                            .getText('agree'),
-                        style: TextStyle(
-                            fontSize: Provider.of<FontSizeModel>(context,
+                      children: [
+                        TextSpan(
+                            text: Provider.of<LocalModel>(context, listen: false)
+                                .getText('agree'),
+                            style: TextStyle(
+                                fontSize: Provider.of<FontSizeModel>(context,
                                     listen: false)
-                                .getTextSize(TextSizeKey.contentSize),
-                            color: Colors.grey[500])),
-                    TextSpan(
-                      text: Provider.of<LocalModel>(context, listen: false)
-                          .getText('service'),
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline,
-                          color: Colors.black),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          // 跳转到服务条款页面的逻辑
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ServiceTermsPage()),
-                          );
-                        },
-                    ),
-                    TextSpan(
-                        text: Provider.of<LocalModel>(context, listen: false)
-                            .getText('and'),
-                        style: TextStyle(
-                            fontSize: Provider.of<FontSizeModel>(context,
+                                    .getTextSize(TextSizeKey.contentSize),
+                                color: Colors.grey[500])),
+                        TextSpan(
+                          text: Provider.of<LocalModel>(context, listen: false)
+                              .getText('service'),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
+                              color: Colors.black),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              // 跳转到服务条款页面的逻辑
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => ServiceTermsPage()),
+                              );
+                            },
+                        ),
+                        TextSpan(
+                            text: Provider.of<LocalModel>(context, listen: false)
+                                .getText('and'),
+                            style: TextStyle(
+                                fontSize: Provider.of<FontSizeModel>(context,
                                     listen: false)
-                                .getTextSize(TextSizeKey.contentSize),
-                            color: Colors.grey[500])),
-                    TextSpan(
-                      text: Provider.of<LocalModel>(context, listen: false)
-                          .getText('privacy'),
-                      style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          decoration: TextDecoration.underline,
-                          color: Colors.black),
-                      recognizer: TapGestureRecognizer()
-                        ..onTap = () {
-                          // 跳转到隐私政策页面的逻辑
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => PrivacyPolicyPage()),
-                          );
-                        },
-                    ),
-                  ],
-                ))
+                                    .getTextSize(TextSizeKey.contentSize),
+                                color: Colors.grey[500])),
+                        TextSpan(
+                          text: Provider.of<LocalModel>(context, listen: false)
+                              .getText('privacy'),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              decoration: TextDecoration.underline,
+                              color: Colors.black),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              // 跳转到隐私政策页面的逻辑
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => PrivacyPolicyPage()),
+                              );
+                            },
+                        ),
+                      ],
+                    ))
               ],
             ),
           ),
-        ));
+        )));
   }
 
   @override
